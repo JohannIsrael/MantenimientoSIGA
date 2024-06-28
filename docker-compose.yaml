@@ -15,4 +15,4 @@ services:
 networks:
   network:
     name: backend
-    external: false
+    external: true

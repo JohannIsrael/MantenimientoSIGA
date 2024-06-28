@@ -23,6 +23,9 @@ ENV LANGUAGE es_MX.UTF-8
 
 # install dependencies
 RUN pip install --upgrade pip
-COPY ./app/requirements.txt .
-RUN pip install -r requirements.txt
+
+# Copiar el archivo requirements.txt en el contenedor
+COPY ./app/requirements.txt /opt/sarh/app/requirements.txt
+RUN pip install -r /opt/sarh/app/requirements.txt
+COPY ./app /opt/sarh/app
 

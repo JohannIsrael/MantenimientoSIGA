@@ -33,9 +33,11 @@ from django.template.loader import render_to_string
 
 
 def grupo_trabajador_requerido(user):
+    print(user.id)
     if user.is_authenticated:
         try:
             trabajador = trabajadores.objects.get(user_id=user.id)
+            print(trabajador.grupos.all())
             # Verificar si el trabajador pertenece al grupo "Jefe Departamento"
             if trabajador.grupos.filter(name='Jefe Departamento').exists():
                 return True
